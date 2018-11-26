@@ -6,7 +6,7 @@ import App from './App.vue'
 import router from './router'
 import VueSession from 'vue-session'
 import moment from 'moment'
-import accounting from 'accounting'
+// import accounting from 'accounting' Remove
 
 Vue.config.productionTip = false
 Vue.use(VueSession)
@@ -20,7 +20,7 @@ Vue.filter('capitalize', (val) => {
 })
 
 Vue.filter('currency', (val) => {
-  return accounting.formatMoney(val)
+  return Intl.NumberFormat('en-IN', {style: 'currency', currency: 'USD'}).format(val)
 })
 
 new Vue({
